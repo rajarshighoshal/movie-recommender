@@ -35,7 +35,6 @@ def get_recommendations(title, n):
 
 
 if __name__ == '__main__':
-
     movie = input('Enter a movie you have really liked: ')
     n = int(input('Enter number of movies you want to see: '))
     try:
