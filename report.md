@@ -1,0 +1,2 @@
+## Data 
+For the sake of thisd task to simplify things a lot I have decided to work with movie title, genre and plot only. As a result I have only used `movies_metadata.csv` and decided to not to look after other data like director, actor etc. <br/> **This recommendation system has another shortcoming as it doesn't consider the language of the movie.**
