@@ -17,7 +17,7 @@ def get_recommendations(title, n):
     try:
         h5f = h5py.File('data.h5','r')
     except OSError:
-        print('Please Run dataLoder First!')
+        return 'Please Run dataLoder First!'
     content = h5f['content'][:]
     print('almost there.....')
     genre = h5f['genre'][:]
