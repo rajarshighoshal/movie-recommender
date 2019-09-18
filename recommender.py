@@ -16,7 +16,7 @@ def get_recommendations(title, n):
     print('Loading the database for you....')
     try:
         h5f = h5py.File('data.h5','r')
-    except FileNotFoundError:
+    except OSError:
         print('Please Run dataLoder First!')
     content = h5f['content'][:]
     print('almost there.....')
