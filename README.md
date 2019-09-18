@@ -8,5 +8,5 @@ Get recommendation of movies by giving the title of a movie which you have reall
 * `h5py` - `pip install h5py`
 ## Usage:
 * First Run dataLoader to create data files. After installation use `python dataLoader.py`
-* After all the data files are created and `dataLoader.py` is executed succesfully use `python recommender.py`. It will ask for a movie name and number of recommendations you want. Provide those things and you will be able to see the recommendations based on your taste. 
+* After all the data files are created and `dataLoader.py` is executed succesfully, use `python recommender.py`. It will ask for a movie name and number of recommendations you want. Provide those things and you will be able to see the recommendations based on your taste. 
 
