@@ -14,7 +14,10 @@ def get_recommendations(title, n):
     # load data files
 
     print('Loading the database for you....')
-    h5f = h5py.File('data.h5','r')
+    try:
+        h5f = h5py.File('data.h5','r')
+    except FileNotFoundError:
+        print('Please Run dataLoder First!')
     content = h5f['content'][:]
     print('almost there.....')
     genre = h5f['genre'][:]
