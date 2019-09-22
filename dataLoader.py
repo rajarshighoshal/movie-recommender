@@ -1,11 +1,14 @@
 import sys
 import warnings
+import pandas as pd
+import numpy as np
+from ast import literal_eval
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
+import h5py
 
 if not sys.warnoptions:
     warnings.simplefilter("ignore")
-
-import pandas as pd
-import numpy as np
 
 # data loading
 print('Reading CSV...', end='')
@@ -16,7 +19,6 @@ print('...Done...')
 
 # data cleaning
 print('Cleaning Data...', end='')
-from ast import literal_eval
 movie_dt.genres = movie_dt.genres.fillna('[]').apply(literal_eval).apply(lambda x: [i['name'] for i in x] if isinstance(x, list) else [])
 
 # create feature vetors
@@ -33,8 +35,6 @@ print('...Done...')
 
 # create recommendation using cosine similarity
 print('Building model...')
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 tf = TfidfVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0, stop_words='english')
 tfidf_content = tf.fit_transform(final_df['content'])
 print('...still working...')
@@ -48,7 +48,6 @@ print('...Done...')
 
 # save cosine similairties
 print('Saving model and data...')
-import h5py
 h5f = h5py.File('data.h5', 'w')
 h5f.create_dataset('content', data=cosine_sim_content)
 print('...almost there...')
